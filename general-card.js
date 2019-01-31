@@ -1,78 +1,70 @@
-/**
- * 
- */
-class GeneralCard extends HTMLElement {
+var LitElement = LitElement || Object.getPrototypeOf(customElements.get("hui-error-entity-row"));
+var html = LitElement.prototype.html;
 
-    /**
-     * called by hass - creates card, sets up any conmfig settings, and generates card
-     * @param  {[type]} hass [description]
-     * @return {[type]}      [description]
-     */
-    set hass(hass) {
-  
-      // if we don't have the card yet then create it
-      if (!this.content) {
-        const card = document.createElement('ha-card');
-        card.header = this.config.title;
-        this.content = document.createElement('div');
-        this.content.style.padding = '0 16px 10px';
-        card.appendChild(this.content);
-        this.appendChild(card);
-      }
-  
-      // save an instance of hass for later
-      this._hass = hass;
-  
-      // save css rules
-      this.cssRules = `
-      
-      `;
-  
-      // update card
-      this
-        .getAllEvents(this.config.entities)
-        .then(events => this.updateHtmlIfNecessary(events))
-        .catch(error => console.log('error', error));
-    }
+class Card extends LitElement {
 
-    getAllEvents(entities){
-        return new Promise((resolve, reject) => {
-            console.log(entities, this.config)
-            return resolve();
-        });
-    }
+  static get properties() {
+    return {
+      hass: Object,
+      config: Object,
+    };
+  }
 
-    updateHtmlIfNecessary(events){
+  constructor() {
+    super();
+  }
 
-    }
+  setConfig(config) {
+    if (!config.entity) throw Error(`entity required.`);
 
-    /**
-     * merge the user configuration with default configuration
-     * @param {[type]} config [description]
-     */
-    setConfig(config) {
-      if (!config.entities) {
-        throw new Error('');
-      }
-  
-      this.config = {
-        title: '',
-        
-        ...config
-      };
-    }
-  
-    /**
-     * get the size of the card
-     * @return {[type]} [description]
-     */
-    getCardSize() {
-      return 3;
-    }
-}
-  
-  
+    this.config = {
+      ...config
+    };
+  }
+
   /**
-   * add card definition to hass
+   * generates the card HTML
+   * @return {TemplateResult}
    */
-  customElements.define('general-card', GeneralCard);
+  render() {
+    html`
+      <ha-card>
+        <style>${this.renderStyle()}</style>
+        ${this.createHeader()}
+        test
+      </ha-card>
+    `;
+  }
+
+  /**
+   * get the current size of the card
+   * @return {Number}
+   */
+  getCardSize() {
+    return 1;
+  }
+
+  static get styles() {
+
+  }
+
+  /**
+   * generates the CSS styles for this card
+   * @return {TemplateResult}
+   */
+  renderStyle() {
+    return html`
+        ha-card {
+          padding: 16px;
+        }
+    `;
+  }
+
+  createHeader() {
+    return html`
+    `;
+  }
+
+}
+
+customElements.define('-card', Card);
