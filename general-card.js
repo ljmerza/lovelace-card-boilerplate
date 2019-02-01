@@ -27,7 +27,7 @@ class Card extends LitElement {
    * @return {TemplateResult}
    */
   render() {
-    html`
+    return html`
       <ha-card>
         <style>${this.renderStyle()}</style>
         ${this.createHeader()}
