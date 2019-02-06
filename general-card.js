@@ -23,20 +23,6 @@ class Card extends LitElement {
   }
 
   /**
-   * generates the card HTML
-   * @return {TemplateResult}
-   */
-  render() {
-    return html`
-      <ha-card>
-        <style>${this.renderStyle()}</style>
-        ${this.createHeader()}
-        test
-      </ha-card>
-    `;
-  }
-
-  /**
    * get the current size of the card
    * @return {Number}
    */
@@ -45,14 +31,6 @@ class Card extends LitElement {
   }
 
   static get styles() {
-
-  }
-
-  /**
-   * generates the CSS styles for this card
-   * @return {TemplateResult}
-   */
-  renderStyle() {
     return html`
         ha-card {
           padding: 16px;
@@ -60,11 +38,24 @@ class Card extends LitElement {
     `;
   }
 
+  /**
+   * generates the card HTML
+   * @return {TemplateResult}
+   */
+  render() {
+    return html`
+      <ha-card>
+        <style>${Card.styles}</style>
+        ${this.createHeader()}
+        test
+      </ha-card>
+    `;
+  }
+
   createHeader() {
     return html`
     `;
   }
-
 }
 
 customElements.define('-card', Card);
