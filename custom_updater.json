@@ -1,9 +1,9 @@
 {
-  "lovelace-card-boilerplate": {
-    "updated_at": "",
-    "version": "0.0.1",
-    "remote_location": "https://raw.githubusercontent.com/ljmerza/lovelace-card-boilerplate/master/general-card.js",
-    "visit_repo": "https://github.com/ljmerza/general-card",
-    "changelog": "https://github.com/ljmerza/general-card/releases/latest"
+  "PLACEHOLDER-card": {
+    "updated_at": "2019-02-30",
+    "version": "1.0.0",
+    "remote_location": "https://raw.githubusercontent.com/ljmerza/PLACEHOLDER-card/master/PLACEHOLDER-card.js",
+    "visit_repo": "https://github.com/ljmerza/PLACEHOLDER-card",
+    "changelog": "https://github.com/ljmerza/PLACEHOLDER-card/releases/latest"
   }
 }
