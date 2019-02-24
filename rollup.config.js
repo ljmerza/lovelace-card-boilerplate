@@ -1,14 +1,16 @@
+import typescript from 'rollup-plugin-typescript';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from "rollup-plugin-terser";
 
 export default {
-    input: 'main.js',
+    input: 'src/index.ts',
     output: {
-        file: '-card.js',
-        format: 'umd'
+        file: 'dist/boilerplate-card.js',
+        format: 'esm'
     },
     plugins: [
+        typescript(),
         resolve(),
         commonjs(),
         terser()
