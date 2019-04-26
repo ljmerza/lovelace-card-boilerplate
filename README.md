@@ -1,11 +1,18 @@
-<h1 align="center"> Card for Home Assistant</h1>
-
-<p align="center">
-  <img src='https://i.imgur.com/uPgIqFl.png' />
-</p>
+# Tracking Number Card for Home Assistant
 
 
-<h2>Track Updates</h2>
+![](./Capture.PNG)
+
+---
+
+[![GitHub Release][releases-shield]][releases]
+[![License][license-shield]](LICENSE.md)
+
+![Project Maintenance][maintenance-shield]
+[![GitHub Activity][commits-shield]][commits]
+
+
+## Track Updates
 
 This custom card can be tracked with the help of [custom-updater](https://github.com/custom-components/custom_updater).
 
@@ -14,34 +21,47 @@ In your configuration.yaml
 ```yaml
 custom_updater:
   card_urls:
-    - https://raw.githubusercontent.com/ljmerza/-card/master/custom_updater.json
+    - https://raw.githubusercontent.com/ljmerza/media-stream-card/master/custom_updater.json
 ```
 
-<h2>Options</h2>
+## Options
 
-| Name | Type | Requirement | `Default` Description
+| Name | Type | Requirement | Description
 | ---- | ---- | ------- | -----------
-| title | string | **Optional** | `Github` Change card title
-| entities | list | **Required** | List of github sensors to display
-| show_extended | boolean | **Optional** | `true` Show/hide tags, forks, and commits links
+| type | string | **Required** | `custom:media-stream-card`
+| header | string | **Optional** | `Tracking Numbers` Header of card
+| showHeader | boolean | **Optional** | `true` Hide header
 
-<h2>Configuration</h2>
-
-Download `-card.js` from the [latest release](https://github.com/ljmerza/-card/releases/latest/) and upload it your /www folder of your Home Assistant config directory.
+## Configuration
+Download `media-stream-card.js` from the [latest release](https://github.com/ljmerza/media-stream-card/releases/latest) and upload it your /www folder of your Home Assistant config directory.
 
 In your ui-lovelace.yaml
 
 ```yaml
 resources:
-  - url: /local/-card/-card.js?v=1.0.0
-    type: module
+  - url: /local/media-stream-card.js?track=true
+    type: js
 ```
 
 Add the custom card to views:
 
 ```yaml
 views:
-  - type: custom:-card
+  - type: custom:media-stream-card
     entities:
-    - sensor.calendar_card
+      - sensor.email_ljmerzagmailcom
 ```
+
+---
+
+Enjoy my card? Help me out for a couple of :beers: or a :coffee:!
+
+[![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/JMISm06AD)
+
+
+[commits-shield]: https://img.shields.io/github/commit-activity/y/ljmerza/media-stream-card.svg?style=for-the-badge
+[commits]: https://github.com/ljmerza/media-stream-card/commits/master
+[license-shield]: https://img.shields.io/github/license/ljmerza/media-stream-card.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-Leonardo%20Merza%20%40ljmerza-blue.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/ljmerza/media-stream-card.svg?style=for-the-badge
+[releases]: https://github.com/ljmerza/media-stream-card/releases
